@@ -1,7 +1,7 @@
 import Example from './Example'
 
 export default {
-  title: 'example/Example',
+  title: 'components/Example',
   component: Example,
 }
 
