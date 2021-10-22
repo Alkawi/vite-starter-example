@@ -5,5 +5,9 @@ export default {
   component: Card,
 }
 
-export const Default = () => Card('')
-export const LongText = () => Card('')
+export const Default = () =>
+  Card({
+    name: 'Rick Sanchez',
+    image: 'https://source.unsplash.com/400x400/?comic',
+    location: 'Earth',
+  })
