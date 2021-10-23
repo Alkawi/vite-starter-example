@@ -1,3 +1,19 @@
 .Navigation {
   border: 1px solid black;
+  background: var(--color-background-lightgreen);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+}
+
+.Navigation__button {
+  background: var(--color-background-blue);
+  color: #fff;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+}
+
+.Navigation__button--active {
+  background: var(--color-background-pink);
 }
