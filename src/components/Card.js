@@ -40,3 +40,32 @@ export function locationCard({ name, type, dimension }) {
 
   return el
 }
+
+export function renderCards(dataset, type) {
+  if (type === 'character') {
+    const el = createElement('section', { className: 'CharactersPage' })
+    console.log(dataset)
+    dataset.forEach(({ name, image, location, status, species }) => {
+      const card = Card({
+        name: name,
+        image: image,
+        location: location.name,
+        status: status,
+        species: species,
+      })
+      el.append(card)
+      return el
+    })
+  } else if (type === 'location') {
+    const el = createElement('section', { className: 'LocationsPage' })
+    dataset.forEach(({ name, type, dimension }) => {
+      const card = locationCard({
+        name: name,
+        type: type,
+        dimension: dimension,
+      })
+      el.append(card)
+      return el
+    })
+  }
+}

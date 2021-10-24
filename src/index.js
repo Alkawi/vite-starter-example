@@ -1,12 +1,7 @@
 import './styles/index.css'
 import { getBySelector } from './lib/dom.js'
 import Header from './components/Header.js'
-import Card from './components/Card.js'
-import { locationCard } from './components/Card.js'
-const appContainer = getBySelector('#app')
-
-const header = Header()
-appContainer.append(header)
+import { fetchAll } from './lib/utilities'
 
 const characterUrls = [
   'https://rickandmortyapi.com/api/character',
@@ -60,50 +55,16 @@ const locationUrls = [
   'https://rickandmortyapi.com/api/location?page=6',
 ]
 
+const appContainer = getBySelector('#app')
+
 //const episodeList = fetchAll(episodeUrls, 'episode')
-const characterList = fetchAll(characterUrls, 'character')
-const locationList = fetchAll(locationUrls, 'location')
+const characterList = fetchAll(characterUrls, 'character', appContainer)
+const locationList = fetchAll(locationUrls, 'location', appContainer)
+
+const header = Header()
+appContainer.append(header)
+appContainer.append(characterList)
 
 //console.log(episodeList)
 console.log(characterList)
 console.log(locationList)
-
-function renderCards(dataset, type) {
-  if (type === 'character') {
-    console.log(dataset)
-    dataset.forEach(({ name, image, location, status, species }) => {
-      const card = Card({
-        name: name,
-        image: image,
-        location: location.name,
-        status: status,
-        species: species,
-      })
-      appContainer.append(card)
-    })
-  } else if (type === 'location') {
-    dataset.forEach(({ name, type, dimension }) => {
-      const card = locationCard({
-        name: name,
-        type: type,
-        dimension: dimension,
-      })
-      appContainer.append(card)
-    })
-  }
-}
-
-function fetchAll(urlArray, type) {
-  let allData = []
-  urlArray.forEach(url => {
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        allData.push(...data.results)
-        if (data.info.count === allData.length) {
-          renderCards(allData, type)
-        }
-      })
-  })
-  return allData
-}
