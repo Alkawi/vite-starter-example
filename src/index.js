@@ -7,15 +7,6 @@ import LocationsPage from './pages/LocationsPage'
 const charactersPage = CharactersPage()
 const locationsPage = LocationsPage()
 
-/*const episodeUrls = [
-  'https://rickandmortyapi.com/api/episode',
-  'https://rickandmortyapi.com/api/episode?page=2',
-  'https://rickandmortyapi.com/api/episode?page=3',
-]*/
-/*
-
-*/
-
 const app = createElement(
   'main',
   null,
