@@ -14,7 +14,7 @@ export default function Card({ image, name, location, status, species }) {
       'dl',
       {},
       createElement('dt', { innerText: 'Last known location: ' }),
-      createElement('dd', { innerText: location }),
+      createElement('dd', { innerText: location.name }),
       createElement('dt', { innerText: 'First seen in: ' }),
       createElement('dd', { innerText: 'Rixty Minutes' })
     )

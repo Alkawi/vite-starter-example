@@ -1,0 +1,7 @@
+.CharactersPage {
+  background: var(--color-background-blue);
+  color: var(--color-lightblue);
+  display: grid;
+  gap: 15px;
+  padding: 15px;
+}
