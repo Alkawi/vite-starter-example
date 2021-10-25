@@ -6,7 +6,7 @@ export default function Navigation({ onClick }) {
     'nav',
     { className: 'Navigation' },
     createElement('button', {
-      className: 'Navigation__button Navigation__button--active',
+      className: 'Navigation__button',
       innerText: 'Characters',
       onclick: () => onClick('characters'),
     }),

@@ -50,7 +50,6 @@ export default function CharactersPage() {
   fetchAll(characterUrls).then(res => addCharacters(res))
 
   function addCharacters(characters) {
-    console.log(characters)
     const characterElements = characters.map(character => {
       return Card(character)
     })
